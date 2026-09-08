@@ -1,19 +1,13 @@
 import React from 'react';
 import { HoverText } from './HoverText';
 import { TiltCard } from './ui/tilt-card';
-import { ExternalLink, Award } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const CERTIFICATIONS = [
   {
-    title: "The Joy of Computing Using Python",
+    title: "Responsible and Safe AI systems",
     provider: "NPTEL",
-    date: "2023",
-    link: "#",
-  },
-  {
-    title: "Programming, Data Structures and Algorithms using Python",
-    provider: "NPTEL",
-    date: "2024",
+    date: "2025",
     link: "#",
   }
 ];
@@ -30,23 +24,20 @@ export function CertificationsSection() {
           </h2>
         </div>
 
-        {/* Certifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center mb-16">
+        {/* Certifications Layout - Centered */}
+        <div className="flex flex-wrap justify-center items-center gap-8 w-full mb-16">
           {CERTIFICATIONS.map((cert, idx) => (
             <TiltCard
               key={idx}
-              className="w-full max-w-[340px] rounded-[24px] border border-[var(--color-accent)]/30 bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-ink)] shadow-[0_8px_30px_rgba(101,35,1,0.12)] transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(170,103,41,0.3)] min-h-[200px] flex flex-col"
+              className="w-full sm:w-[340px] max-w-[340px] rounded-[24px] border border-[var(--color-accent)]/30 bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-ink)] shadow-[0_8px_30px_rgba(101,35,1,0.12)] transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(170,103,41,0.3)] min-h-[200px] flex flex-col"
               scale={1.05}
               tiltLimit={15}
             >
               <div className="flex flex-col h-full w-full p-8 gap-3 relative z-20 flex-grow">
                 {/* Header (Icon + Date) */}
-                <div className="flex items-start justify-between mb-2">
-                  <div className="p-2.5 bg-[var(--color-base)]/10 rounded-xl !text-[var(--color-base)] group-hover:bg-[var(--color-base)]/20 transition-colors duration-300 translate-y-[5px] translate-x-[5px]">
-                    <Award size={20} />
-                  </div>
+                <div className="flex items-start justify-end mb-2">
                   {cert.date && (
-                    <span className="text-[10px] font-bold !text-[var(--color-base)] tracking-wider uppercase bg-[var(--color-base)]/10 group-hover:bg-[var(--color-base)]/20 transition-colors duration-300 px-2.5 py-1 rounded-full -translate-x-[7px] translate-y-[5px]">
+                    <span className="text-[10px] font-bold !text-[var(--color-base)] tracking-wider uppercase bg-[var(--color-base)]/10 group-hover:bg-[var(--color-base)]/20 transition-colors duration-300 px-2.5 py-1 rounded-full -translate-x-[9px] translate-y-[10px]">
                       {cert.date}
                     </span>
                   )}

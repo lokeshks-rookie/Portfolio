@@ -180,10 +180,10 @@ export function Footer() {
           <div>
             <h3>Other Platforms</h3>
             <div className="footer-socials">
-              <a href="#" className="social-link">
+              <a href='https://leetcode.com/u/lokeshks/' className="social-link">
                 LeetCode
               </a>
-              <a href="#" className="social-link">
+              <a href='https://www.hackerrank.com/profile/luckylokesh1296' className="social-link">
                 HackerRank
               </a>
             </div>

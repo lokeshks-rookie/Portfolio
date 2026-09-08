@@ -19,10 +19,11 @@ export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   description?: string;
   link?: string;
+  githubLink?: string;
 }
 
 const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
-  ({ className, title = "Project Title", description = "Project description goes here.", link = "#", ...props }, ref) => {
+  ({ className, title = "Project Title", description = "Project description goes here.", link = "#", githubLink, ...props }, ref) => {
     return (
       <div
         ref={ref}
@@ -31,25 +32,32 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
       >
         <div className="relative h-full rounded-[50px] bg-gradient-to-br from-[var(--color-ink-2)] to-[var(--color-ink)] shadow-2xl transition-all duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[box-shadow:var(--color-accent)_0px_20px_40px_-20px] group-hover:[transform:rotate3d(1,1,0,25deg)]">
           <div className="absolute inset-2 rounded-[55px] border-b border-l border-white/30 bg-[var(--color-base)]/80 backdrop-blur-md [transform-style:preserve-3d] [transform:translate3d(0,0,25px)]"></div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pb-12 [transform:translate3d(0,0,26px)]">
-            <span className="block text-3xl font-black text-[var(--color-ink)] text-center">
+          <div
+            className="absolute inset-2 flex flex-col items-center justify-center pb-12 [transform:translate3d(0,0,26px)]"
+            style={{ paddingLeft: '2px', paddingRight: '2px' }}
+          >
+            <span className="block text-2xl font-black text-[var(--color-ink)] text-center w-full leading-tight px-1">
               {title}
             </span>
-            <span className="mt-4 block text-[13px] leading-tight text-[var(--color-ink)]/90 text-center w-full px-2 line-clamp-4 overflow-hidden text-ellipsis">
+            <span
+              className="mt-3 block text-[13px] leading-tight text-[var(--color-ink)]/90 text-center w-full line-clamp-4 overflow-hidden text-ellipsis"
+              style={{ paddingLeft: '2px', paddingRight: '2px' }}
+            >
               {description}
             </span>
           </div>
           <div className="absolute bottom-5 left-8 right-6 flex items-center justify-between [transform-style:preserve-3d] [transform:translate3d(0,0,26px)]">
             <div className="flex gap-2.5 [transform-style:preserve-3d]">
               {[
-                { icon: FaGithub, delay: "400ms", href: link },
-                { icon: ExternalLink, delay: "600ms", href: link },
-              ].map(({ icon: Icon, delay, href }, index) => (
+                { icon: FaGithub, delay: "400ms", href: githubLink || link, label: "GitHub repository" },
+                { icon: ExternalLink, delay: "600ms", href: link, label: "Project link" },
+              ].map(({ icon: Icon, delay, href, label }, index) => (
                 <a
                   key={index}
                   href={href}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={label}
                   className="group/social grid h-[30px] w-[30px] place-content-center rounded-full border-none bg-[var(--color-ink)] shadow-[rgba(0,0,0,0.5)_0px_7px_5px_-5px] transition-all duration-200 ease-in-out group-hover:[box-shadow:rgba(0,0,0,0.2)_-5px_20px_10px_0px] group-hover:[transform:translate3d(0,0,50px)] hover:bg-[var(--color-accent)]"
                   style={{ transitionDelay: delay }}
                 >
