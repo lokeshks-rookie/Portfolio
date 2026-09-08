@@ -365,7 +365,8 @@ a:hover {
 
 /* --- Footer ------------------------------------------------ */
 .footer {
-  background: var(--color-base);
+  background: linear-gradient(180deg, var(--color-ink-2) 0%, var(--color-deep) 100%);
+  color: var(--color-base);
   border-top: 1px solid var(--color-accent-2);
   padding: 4rem 2rem 2rem;
   display: flex;
@@ -391,7 +392,7 @@ a:hover {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: rgba(252, 235, 206, 0.7);
   margin-bottom: 1rem;
 }
 
@@ -408,7 +409,7 @@ a:hover {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: 0.9rem;
-  color: var(--color-ink);
+  color: var(--color-base);
   border: 1px solid var(--color-accent-2);
   border-radius: 8px;
   padding: 0.45rem 0.9rem;
@@ -416,20 +417,20 @@ a:hover {
 }
 
 .social-link:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background: rgba(170, 103, 41, 0.06);
+  border-color: var(--color-base);
+  color: var(--color-base);
+  background: rgba(252, 235, 206, 0.1);
 }
 
 .contact-email {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: 0.95rem;
-  color: var(--color-ink);
+  color: rgba(225, 210, 184, 0.9);
 }
 
 .contact-email a {
-  color: var(--color-accent);
+  color: var(--color-base);
   font-weight: 500;
 }
 
@@ -444,13 +445,13 @@ a:hover {
 .contact-form textarea {
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  color: var(--color-ink);
-  background-color: var(--color-base);
+  color: var(--color-base);
+  background: linear-gradient(180deg, var(--color-ink-2) 0%, var(--color-deep) 100%);
   border: 1px solid var(--color-accent-2);
   border-radius: 8px;
   padding: 0.6rem 0.9rem;
   outline: none;
-  caret-color: var(--color-ink);
+  caret-color: var(--color-base);
   transition: border-color 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
   resize: vertical;
 }
@@ -459,9 +460,9 @@ a:hover {
 .contact-form textarea:focus,
 .contact-form input:active,
 .contact-form textarea:active {
-  border-color: var(--color-accent);
-  background-color: var(--color-base) !important;
-  color: var(--color-ink) !important;
+  border-color: var(--color-base);
+  background-color: rgba(252, 235, 206, 0.1) !important;
+  color: var(--color-base) !important;
 }
 
 /* Prevent browser autofill from turning background blue/white */
@@ -485,17 +486,16 @@ a:hover {
   font-weight: 500;
   font-size: 0.875rem;
   letter-spacing: 0.05em;
-  color: var(--color-base);
-  background: var(--color-accent);
+  color: var(--color-ink);
+  background: linear-gradient(135deg, #FDF0DC 0%, #F5D7AD 100%);
   border: none;
   border-radius: 8px;
   padding: 0.65rem 1.25rem;
   cursor: pointer;
-  transition: background 0.2s var(--ease-out);
 }
 
 .contact-form button:hover {
-  background: var(--color-deep);
+  background: var(--color-accent-2);
 }
 
 .hobbies-list {
@@ -519,8 +519,8 @@ a:hover {
   font-family: var(--font-sans);
   font-weight: 300;
   font-size: 0.75rem;
-  color: var(--color-ink);
-  opacity: 0.55;
+  color: var(--color-base);
+  opacity: 0.75;
   letter-spacing: 0.05em;
   text-align: center;
 }

@@ -94,11 +94,11 @@ function ContactForm() {
         type="submit"
         id="contact-submit"
         disabled={status === 'sending' || status === 'sent'}
-        className="flex items-center justify-centre gap-10 w-full"
+        className="flex items-center justify-centre gap-7 w-full"
       >
         {status === 'idle' && (
           <>
-            <Send size={14} />
+            <Send size={13} />
             <span>Send Message</span>
           </>
         )}
@@ -107,7 +107,7 @@ function ContactForm() {
         {status === 'error' && <span className="mx-auto">Something went wrong — try again</span>}
       </button>
       {status === 'sent' && (
-        <p style={{ fontSize: '0.8rem', color: 'var(--color-accent)', textAlign: 'center' }}>
+        <p style={{ fontSize: '0.8rem', color: 'var(--color-base)', textAlign: 'center' }}>
           Thanks! I'll get back to you soon.
         </p>
       )}
@@ -173,17 +173,27 @@ export function Footer() {
               <h3 className="group-hover:text-[var(--color-accent)] transition-colors cursor-pointer !mb-0">
                 Hobbies
               </h3>
-              <ExternalLink size={14} className="text-[var(--color-base)] group-hover:text-[var(--color-accent)] transition-colors -mt-0.5" />
+              <ExternalLink size={14} className="text-[var(--color-base)]/60 group-hover:text-[var(--color-base)] transition-colors -mt-0.5" />
             </a>
           </div>
 
           <div>
             <h3>Other Platforms</h3>
             <div className="footer-socials">
-              <a href='https://leetcode.com/u/lokeshks/' className="social-link">
+              <a
+                href="https://leetcode.com/u/lokeshks/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
                 LeetCode
               </a>
-              <a href='https://www.hackerrank.com/profile/luckylokesh1296' className="social-link">
+              <a
+                href="https://www.hackerrank.com/profile/luckylokesh1296"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
                 HackerRank
               </a>
             </div>
