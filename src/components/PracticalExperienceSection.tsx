@@ -2,7 +2,13 @@ import React from 'react';
 import { HoverText } from './HoverText';
 import marlionLogo from '../public/Screenshot 2026-09-07 134719.png';
 import { TiltCard } from './ui/tilt-card';
+import { ExternalLink, MapPin } from 'lucide-react';
 
+// Website URL placeholder - update this when you have the final URL
+const COMPANY_WEBSITE_URL = 'https://www.marliontech.com';
+
+// Google Maps search URL for Marlion Technologies location
+const COMPANY_MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Marlion+Technologies';
 
 export function PracticalExperienceSection() {
   return (
@@ -32,8 +38,43 @@ export function PracticalExperienceSection() {
             </div>
             {/* Text side */}
             <div className="w-full md:w-2/3 flex flex-col justify-center text-[var(--color-ink)]">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-2">
+              <div className="flex items-center flex-wrap mb-6" style={{ gap: '30px' }}>
                 <h3 className="text-4xl font-bold">Marlion Technologies</h3>
+
+                {/* Action Icons (30px gap from company name) */}
+                <div className="flex items-center gap-3.5">
+                  {/* Website Link (ExternalLink Icon) */}
+                  <a
+                    href={COMPANY_WEBSITE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center justify-center transition-colors duration-200"
+                    style={{ color: 'var(--color-ink)' }}
+                    aria-label="Visit Company Website"
+                    id="experience-navigation-icon"
+                  >
+                    <ExternalLink size={16} color="var(--color-ink)" className="transition-transform duration-200 group-hover:scale-110" />
+                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none text-xs whitespace-nowrap" style={{ color: 'var(--color-ink)' }}>
+                      Visit Website
+                    </span>
+                  </a>
+
+                  {/* Google Maps Location Link (MapPin Icon) */}
+                  <a
+                    href={COMPANY_MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center justify-center transition-colors duration-200"
+                    style={{ color: 'var(--color-ink)' }}
+                    aria-label="View Location on Google Maps"
+                    id="experience-map-icon"
+                  >
+                    <MapPin size={16} color="var(--color-ink)" className="transition-transform duration-200 group-hover:scale-110" />
+                    <span className="absolute left-1/2 -translate-x-1/2 -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none text-xs whitespace-nowrap" style={{ color: 'var(--color-ink)' }}>
+                      Google Maps
+                    </span>
+                  </a>
+                </div>
               </div>
 
               <h4 className="text-2xl font-bold mb-4 text-[var(--color-ink-2)]">Position : Team-Lead</h4>
