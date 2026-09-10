@@ -57,7 +57,7 @@ export default function App() {
         id="content"
         style={{ opacity: 0, position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
       >
-        
+
         {/* Main content area will go here */}
         <main className="dom-interactive" style={{ flexGrow: 1 }}>
           <Hero />

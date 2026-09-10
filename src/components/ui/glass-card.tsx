@@ -20,10 +20,11 @@ export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
   description?: string;
   link?: string;
   githubLink?: string;
+  onViewMore?: () => void;
 }
 
 const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
-  ({ className, title = "Project Title", description = "Project description goes here.", link = "#", githubLink, ...props }, ref) => {
+  ({ className, title = "Project Title", description = "Project description goes here.", link = "#", githubLink, onViewMore, ...props }, ref) => {
     return (
       <div
         ref={ref}
@@ -65,12 +66,18 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
                 </a>
               ))}
             </div>
-            <a href={link} target="_blank" rel="noreferrer" className="flex w-2/5 cursor-pointer items-center justify-end transition-all duration-200 ease-in-out hover:[transform:translate3d(0,0,10px)]">
+            <div
+              className="flex w-2/5 cursor-pointer items-center justify-end transition-all duration-200 ease-in-out hover:[transform:translate3d(0,0,10px)]"
+              onClick={(e) => {
+                e.stopPropagation();
+                onViewMore?.();
+              }}
+            >
               <button className="border-none bg-none text-xs font-bold text-[var(--color-ink)] group-hover:text-[var(--color-ink-2)]">
                 View more
               </button>
               <ChevronDown className="h-4 w-4 stroke-[var(--color-ink)] group-hover:stroke-[var(--color-ink-2)]" strokeWidth={3} />
-            </a>
+            </div>
           </div>
           <div className="absolute top-0 right-0 [transform-style:preserve-3d]">
             {[
