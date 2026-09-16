@@ -17,7 +17,7 @@ export const PROJECTS: ProjectData[] = [
     title: "Skadoosh",
     description:
       "A Reddit-style scam awareness and reporting platform crowdsourcing fraud alerts across web and mobile.",
-    link: "#",
+    link: "https://skadoosh-scams.vercel.app",
     githubLink: "https://github.com/lokeshks-rookie/Skadoosh",
     images: [
       "/project-images/Skadoosh1.png",
