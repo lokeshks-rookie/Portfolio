@@ -5,6 +5,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { CertificationsSection } from './components/CertificationsSection';
 import { PracticalExperienceSection } from './components/PracticalExperienceSection';
+import { CallToAction } from './components/CallToAction';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLenis } from './hooks/useLenis';
@@ -66,6 +67,7 @@ export default function App() {
           <ProjectsSection />
           <CertificationsSection />
           <PracticalExperienceSection />
+          <CallToAction />
         </main>
 
         {/* ── Footer: socials, contact, hobbies ── */}

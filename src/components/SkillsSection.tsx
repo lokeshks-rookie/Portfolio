@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { HoverText } from './HoverText';
 import { CoverflowCarousel } from './ui/CoverflowCarousel';
 
@@ -34,6 +35,11 @@ const ALL_LANGUAGES = [
 ];
 
 export function SkillsSection() {
+  const headingRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const headingInView = useInView(headingRef, { once: true, margin: '-80px' });
+  const carouselInView = useInView(carouselRef, { once: true, margin: '-60px' });
+
   return (
     <section
       id="skills"
@@ -48,15 +54,34 @@ export function SkillsSection() {
       {/* Ensure HoverText works by marking this as dom-interactive since it's a new section */}
       <div className="dom-interactive w-full max-w-7xl mx-auto flex flex-col gap-20 z-10">
 
-        {/* Large text heading with hover effect */}
-        <div className="text-center mb-4">
+        {/* Large text heading with fade-in + hover effect */}
+        <motion.div
+          ref={headingRef}
+          className="text-center mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={headingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
+        >
           <h2 className="text-5xl md:text-7xl font-light text-[var(--color-ink-2)] tracking-wide">
             <HoverText text="Programming Languages expertise" />
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Unified Carousel — given extra vertical room */}
-        <div className="flex flex-col items-center gap-8 w-full" style={{ minHeight: '520px' }}>
+        {/* Unified Carousel — burst from left, then continue autoplay */}
+        <motion.div
+          ref={carouselRef}
+          className="flex flex-col items-center gap-8 w-full"
+          style={{ minHeight: '520px' }}
+          initial={{ x: 600, opacity: 0 }}
+          animate={carouselInView ? { x: 0, opacity: 1 } : { x: 600, opacity: 0 }}
+          transition={{
+            type: 'spring',
+            stiffness: 50,
+            damping: 16,
+            mass: 1.2,
+            delay: 0.3,
+          }}
+        >
           <CoverflowCarousel
             slides={ALL_LANGUAGES}
             loop={true}
@@ -67,7 +92,7 @@ export function SkillsSection() {
             cardWidth="clamp(180px, 26vw, 320px)"
             gap={0.08}
           />
-        </div>
+        </motion.div>
 
       </div>
     </section>
