@@ -365,7 +365,7 @@ a:hover {
 
 /* --- Footer ------------------------------------------------ */
 .footer {
-  background: linear-gradient(180deg, var(--color-ink-2) 0%, var(--color-deep) 100%);
+  background: linear-gradient(180deg, #9d4518 0%, #692201 100%);
   color: var(--color-base);
   border-top: 1px solid var(--color-accent-2);
   padding: 4rem 2rem 2rem;
@@ -446,7 +446,7 @@ a:hover {
   font-family: var(--font-sans);
   font-size: 0.875rem;
   color: var(--color-base);
-  background: linear-gradient(135deg, #7E3909 0%, #7e2f08 100%);
+  background: transparent;
   border: 1px solid var(--color-accent-2);
   border-radius: 8px;
   padding: 0.6rem 0.9rem;
